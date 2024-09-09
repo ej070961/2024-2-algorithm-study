@@ -1,2 +1,4 @@
 .chp
 *.prob
+/js
+test.js
