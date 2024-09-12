@@ -8,7 +8,7 @@ N, M = map(int, input().split())
 graph = []
 
 for _ in range(N):
-    graph.append(list(map(int,' '.join(input().split())))) # 각각의 수들은 붙어서 입력으로 주어진다 -> ' '.join 으로 
+    graph.append(list(map(int,(input().strip())))) # 각각의 수들은 붙어서 입력으로 주어진다 -> strip 으로 
 
 def bfs(x,y):
     dx = [0,0,1,-1]
@@ -26,5 +26,7 @@ def bfs(x,y):
                 if graph[nx][ny] == 1: # 1이면 미로 길임, queue 에 넣는다
                     queue.append((nx,ny)) 
                     graph[nx][ny] = graph[x][y] + 1 # 마지막 위치값을 반환하면 답 바로 짠
+
     print(graph[N - 1][M -1]) # 마지막 위치 반환
-    
+
+bfs(0,0) # 시작 (1,1)
