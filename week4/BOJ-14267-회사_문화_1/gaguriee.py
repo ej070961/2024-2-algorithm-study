@@ -10,6 +10,7 @@ boss = [0] + list(map(int, input().split()))
 # 직원별 칭찬 횟수
 dp = [0] * (N+1)
 
+# 직속 상사로부터 칭찬을 받은 직원 번호 i, 칭찬의 수치 w
 for _ in range(M):
     i, w = map(int, input().split())
     dp[i] = dp[i] + w

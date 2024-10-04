@@ -1,6 +1,10 @@
 import sys
 input = sys.stdin.readline
 
+# 10 30 10 20 20 10
+# 0  0  0  0  0  1
+# 0  0  0  0  
+
 N = int(input())
 A = list(map(int, input().split())) 
 
