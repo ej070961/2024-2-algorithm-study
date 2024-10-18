@@ -8,20 +8,21 @@ answer = 0
 #피로도, 던전 방문 수, 던전 배열
 def dfs(k, cnt, arr):
     global answer
-
+    #방문 수가 현재 최대 방문 수보다 크다면 answer 값 갱신 
     if cnt > answer:
         answer = cnt 
     for j in range(len(arr)):
         if k >= arr[j][0] and not visited[j]:
-            visited[j] = True
-            dfs(k-arr[j][1], cnt + 1, arr)
-            visited[j] = False #백트래킹: 방문하지 않은 상태로 되돌림 다른 경우의 수를 탐색하기 위해 
+            visited[j] = True #방문 표시 
+            dfs(k - arr[j][1], cnt + 1, arr) #다음 던전을 탐색 
+            visited[j] = False #백트래킹: 재귀적 호출이 끝나면 방문하지 않은 상태로 되돌림 다른 경우의 수를 탐색하기 위해 
 
 def solution(k, dungeons):
     global visited
     #dfs를 위한 방문 배열 생성 
     visited = [False] * len(dungeons)
 
+    #모든 던전에 대해 탐색 시작 
     dfs(k, 0, dungeons)
     return answer
 
